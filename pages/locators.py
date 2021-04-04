@@ -4,10 +4,12 @@ from selenium.webdriver.common.by import By
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET_LINK = (By.CSS_SELECTOR, "span a.btn")
 
 
-class MainPageLocators():
-    pass
+class BasketPageLocators():
+    BASKET_ITEMS = (By.CSS_SELECTOR, ".basket-items")
+    INNER_CONTENT_TEXT = (By.CSS_SELECTOR, "#content_inner p")
 
 
 class LoginPagesLocators():
@@ -15,10 +17,14 @@ class LoginPagesLocators():
     REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
 
 
+class MainPageLocators():
+    pass
+
+
 class ProductPageLocators():
     ADD_TO_BASKET_BUTTON = (By.CSS_SELECTOR, ".btn-add-to-basket")
-    GOODS_NAME = (By.CSS_SELECTOR, ".col-sm-6.product_main h1")
-    GOODS_PRICE = (By.CSS_SELECTOR, ".col-sm-6.product_main .price_color")
-    MESSAGE_GOODS_ADDED = (By.CSS_SELECTOR, ".alert-success:nth-child(1) strong")
+    ITEM_NAME = (By.CSS_SELECTOR, ".col-sm-6.product_main h1")
+    ITEM_PRICE = (By.CSS_SELECTOR, ".col-sm-6.product_main .price_color")
+    MESSAGE_ITEM_ADDED = (By.CSS_SELECTOR, ".alert-success:nth-child(1) strong")
     MESSAGE_COST_OF_BASKET = (By.CSS_SELECTOR, ".alert-info strong")
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, ".alert-success")
