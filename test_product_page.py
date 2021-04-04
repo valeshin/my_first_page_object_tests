@@ -20,7 +20,7 @@ def test_guest_can_add_product_to_basket(browser, number):
 
 @pytest.mark.xfail
 def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
-    link = f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
     page = ProductPage(browser, link)
     page.open()
     page.add_to_basket()
@@ -28,7 +28,7 @@ def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
 
 
 def test_guest_cant_see_success_message(browser):
-    link = f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
     page = ProductPage(browser, link)
     page.open()
     page.should_not_be_success_message()
@@ -36,7 +36,7 @@ def test_guest_cant_see_success_message(browser):
 
 @pytest.mark.xfail
 def test_message_disappeared_after_adding_product_to_basket(browser):
-    link = f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
     page = ProductPage(browser, link)
     page.open()
     page.add_to_basket()
@@ -60,12 +60,10 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
 
 
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
-    link = "http://selenium1py.pythonanywhere.com"
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
     page = ProductPage(browser, link)
     page.open()
     page.go_to_basket()
     basket_page = BasketPage(browser, browser.current_url)
     basket_page.should_not_be_items()
-    basket_page.should_be_basket_empty_text()
-
-
+    basket_page.should_be_message_text()

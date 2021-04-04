@@ -7,6 +7,6 @@ class BasketPage(BasePage):
         assert self.is_not_element_present(*BasketPageLocators.BASKET_ITEMS), \
             "Items are presented in basket, but should not be!"
 
-    def should_be_basket_empty_text(self):
-        inner_content_text = self.browser.find_element(*BasketPageLocators.INNER_CONTENT_TEXT).text
-        assert "Your basket is empty." in inner_content_text, 'Text "Your basket is empty" is not presented'
+    def should_be_message_text(self):
+        assert self.is_element_present(*BasketPageLocators.INNER_CONTENT_TEXT) and \
+               self.browser.find_element(*BasketPageLocators.INNER_CONTENT_TEXT).text, "Message text is not presented"
